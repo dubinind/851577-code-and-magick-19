@@ -26,12 +26,12 @@ var renderText = function (ctx, text, x, y) {
   ctx.textBaseline = 'hanging';
   ctx.fillStyle = '#000';
   ctx.fillText(text, x, y);
-}
+};
 
 var renderColumn = function (ctx, x, y, width, height, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, width, height);
-}
+};
 
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
@@ -47,22 +47,20 @@ var getMaxElement = function (arr) {
 
 var getRoundNumber = function (number) {
   return Math.round(number);
-}
+};
 
 var getRandomColor = function () {
   return 'hsl(240, 100%,' + getRandomNumber() + '%)';
-}
+};
 
 var getRandomNumber = function () {
   return getRoundNumber(Math.random() * 100);
-}
+};
 
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, cloudShadowColor);
   renderCloud(ctx, CLOUD_X, CLOUD_Y, cloudColor);
   renderText(ctx, titleText, CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP);
-
-
 
   var maxTime = getMaxElement(times);
 
@@ -72,4 +70,4 @@ window.renderStatistics = function (ctx, players, times) {
     var columnColor = players[i] === playerName ? playerColumnColor : getRandomColor();
     renderColumn(ctx, CLOUD_X + GAP + (TEXT_WIDTH + FONT_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP - TEXT_HEIGHT, BAR_WIDTH, -((barHeight * times[i]) / maxTime), columnColor);
   }
-}
+};
